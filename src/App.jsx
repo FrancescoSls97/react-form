@@ -13,13 +13,12 @@ function App() {
   const [newItem, setNewItem] = useState('')
   const [items, setItems] = useState(shop_items)
 
-  {/*function handleSubmit(e) {
-    e.preventdefault()
+  function handleSubmit(e) {
+    e.preventDefault()
     console.log(newItem);
 
     setItems([...items, newItem])
-    alert('added New Item')
-  } */}
+  } 
 
 
 
@@ -35,8 +34,13 @@ function App() {
           )
         })}
       </ul>
-    </div>
-       
+      <form onSubmit={handleSubmit}>
+        <div className="d-flex">
+          <input className="form-control m-2" placeholder='New Item' type="text" value={newItem} onChange={e => setNewItem(e.target.value)}/>
+          <button type='submit' className="btn btn-success">  Save New Item  </button>
+        </div>
+      </form>
+    </div>   
     </>
   )
 }
